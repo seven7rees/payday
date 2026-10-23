@@ -17,7 +17,9 @@ and against the live mainnet program bytes. NOT submitted, NOT deployed, not aud
   payouts). `keeper.json` beside it.
 - `tests/`: the host tests (t23 to t25) and the LiteSVM story (t11). They run from the build
   checkout, which needs `ref/` (`tools/fetch_refs.sh` recreates it).
-- `art/`: logo, graphic and video for the listing.
+- `art/`: the logo (`art/logo/payday-logo.png`) and the listing graphic
+  (`art/promo/payday-graphic.png`), free to use for the listing. Numbers on the graphic are a
+  pre-launch simulation.
 - `WALLET.txt`: the builder's PUBLIC payout address only.
 
 ## Hygiene
