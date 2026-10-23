@@ -1,0 +1,54 @@
+# Bordrless's hook template, for a build on your machine: the builder's Cargo.toml, with
+# its two crates from the public programs repository. The builder uses its own copy and lock.
+[workspace]
+members = ["."]
+
+[package]
+name = "payday-hook"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "payday_hook"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build", "bordrless-hook/idl-build", "bordrless-game/idl-build"]
+anchor-debug = []
+custom-heap = []
+custom-panic = []
+
+[dependencies]
+anchor-lang = "=1.2.0"
+bordrless-hook = { git = "https://github.com/BordrlessDex/bordrless-programs" }
+bordrless-game = { git = "https://github.com/BordrlessDex/bordrless-programs" }
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_os, values("solana"))'] }
+
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
+
+[profile.release.build-override]
+opt-level = 3
+incremental = false
+codegen-units = 1
+
+# Local builds only: the Workshop uses its own Cargo.toml and lock. Pin the crates to the ref/ mirror.
+[patch."https://github.com/BordrlessDex/bordrless-programs"]
+bordrless-hook   = { path = "../../ref/bordrless-programs/crates/bordrless-hook" }
+bordrless-game   = { path = "../../ref/bordrless-programs/crates/bordrless-game" }
+bordrless-launch = { path = "../../ref/bordrless-programs/programs/bordrless_launch" }
+bordrless-token  = { path = "../../ref/bordrless-programs/programs/bordrless_token" }
+bordrless-swap   = { path = "../../ref/bordrless-programs/programs/bordrless_swap" }
+bordrless-core   = { path = "../../ref/bordrless-programs/crates/bordrless-core" }
+bordrless-strategy = { path = "../../ref/bordrless-programs/crates/bordrless-strategy" }
+bordrless-bridge = { path = "../../ref/bordrless-programs/programs/bordrless_bridge" }
+bordrless-kit    = { path = "../../ref/bordrless-programs/programs/bordrless_kit" }

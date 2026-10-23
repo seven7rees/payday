@@ -1,0 +1,15 @@
+# third-party clones and fetched pages: recreate with tools/fetch_refs.sh
+/ref/
+# build output
+target/
+/target
+# the Workshop builds with its own Cargo.lock
+hook/Cargo.lock
+script/Cargo.lock
+dist/*/script/Cargo.lock
+dist/*/hook/Cargo.lock
+.DS_Store
+# program-id keypairs made by cargo build-sbf: private keys, never commit
+artifacts/**/*-keypair.json
+target-sbf/
+artifacts/build/

@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "holdings": {
+    "minBalance": "1000000000",
+    "maxBalance": null,
+    "hookData": {
+      "offset": 1,
+      "width": 4,
+      "compare": "ne",
+      "against": {
+        "epoch": {
+          "secs": 604800,
+          "fieldUnitSecs": null
+        }
+      }
+    },
+    "payTo": "owner",
+    "perStep": {
+      "withSwapAccounts": null,
+      "withoutSwapAccounts": 4
+    }
+  },
+  "swapAccounts": false,
+  "hookAccounts": false,
+  "mintWritable": false,
+  "payouts": true,
+  "wallets": [
+    "AxoN4hpQJWKFkSimhqnA7dUsqf5VGojA5RhhZTiP4KFm"
+  ],
+  "stepSecs": 300,
+  "stateLen": 185,
+  "payoutTerms": {
+    "stepBps": 10000,
+    "holdingBps": 10000,
+    "windowBps": 10000,
+    "windowSecs": 86400
+  },
+  "launcherShareBps": 5000,
+  "view": [
+    {
+      "label": "Paid to holders",
+      "account": "script",
+      "offset": 73,
+      "width": 8,
+      "as": "lamports"
+    },
+    {
+      "label": "Holder pot",
+      "account": "script",
+      "offset": 57,
+      "width": 8,
+      "as": "lamports"
+    },
+    {
+      "label": "This week's payout",
+      "account": "script",
+      "offset": 125,
+      "width": 8,
+      "as": "lamports"
+    },
+    {
+      "label": "Paid this week",
+      "account": "script",
+      "offset": 133,
+      "width": 8,
+      "as": "lamports"
+    },
+    {
+      "label": "Holders counted",
+      "account": "script",
+      "offset": 141,
+      "width": 4,
+      "as": "number"
+    },
+    {
+      "label": "Week began",
+      "account": "script",
+      "offset": 145,
+      "width": 8,
+      "as": "time"
+    }
+  ],
+  "roundSecs": 604800
+}
